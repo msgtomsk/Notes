@@ -1,0 +1,9 @@
+1. Tutorial horizon
+
+2. ngrok - hosting
+
+******************************************************
+
+1. Table - whitespace : no-wrap
+
+2. single word exceeding length -> overflow-wrap : break-word
