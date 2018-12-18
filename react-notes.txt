@@ -1,0 +1,69 @@
+React with specified version
+
+1. npm -i -g create-react-app@version
+
+======================================================================================
+
+Use boostrap in react
+
+1. npm install boostrap
+
+2. import boostrap in the root component
+
+
+=====================================================================================
+
+Extensions
+
+1. simple react snippets -> expansion
+
+2. prettier -> formatting
+
+
+===================================================================================
+
+return 
+	<div> => return ;
+
+return with multiple line use brackets
+
+return(
+	<div>
+);
+
+
+===================================================================================
+
+1. React.Fragment -> avoid using additional div wrapper, while returning multiple jsx;
+
+====================================================================================
+
+
+Notes 
+
+1. {} -> accepts any valid javascript expressions(which generates a value, eg. {2+2})
+
+========================================================================================
+
+Debugging
+
+1. react developer tools -> extension for chrome and firefox;
+
+2. To take instance -> console $r in browser which will return the selected instance in the react tab of browser
+
+3. $r.render() -> Will return the react element
+
+=========================================================================================
+
+Lifecycle hooks
+
+1. componentDidMount -> called after the DOM is rendered (constructor -> render -> )
+
+2. componentDidUpdate -> called after the DOM is updated (render -> )
+
+3. componentWillUnmount -> called after deleted from the DOM
+
+
+=============================================================================================
+
+

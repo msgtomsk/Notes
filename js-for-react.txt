@@ -1,0 +1,251 @@
+var keyword 
+
+	-> scoped to the function which is declared
+		
+		function test() {
+			for(var i = 0 ; i < 5 ; i ++ ) {
+				console.log(i);
+			}
+			console.log(i); --------------> accessible, it will print 5
+		}
+		test();
+
+let keyword
+
+	-> scoped to the block which is declared
+
+const keyword
+
+	-> also scoped to the block which is declared
+
+
+=====================================================================================================
+
+Object
+
+	const sample = {
+		name : 'sam',
+		test : function() {},
+		walk() {}
+	}
+
+this keyword
+
+	-> always refers to the current object
+	-> The value of this is determined by how the function is called
+	-> functions in javascript are objects.
+	-> when we call a function outside the object as standalone function, it retuns window object
+		
+		const sample = {
+			name : 'sam',
+			walk() {
+				console.log(this);
+			}
+		}
+		sample.walk(); -----------> return the object key value pair
+
+		const walk = sample.walk;
+		walk();  --------------> undefined
+
+		-> fix the above problem
+
+		const sample = {
+			name : 'sam',
+			walk() {
+				console.log(this);
+			}
+		}
+		sample.walk(); -----------> return the object key value pair
+
+		const walk = sample.walk.bind(sample);
+		walk();  --------------> return the object
+
+bind method
+
+	-> set the value of this permanently
+
+arrow function 
+	-> inherits this in the context which is defined
+
+
+====================================================================================================
+
+map method
+
+	const color = ['red', 'green'];
+	const items = color.map(color => `<li>${ color }</li>`);  --------> template ` `
+						|________------> render dynamic data  => ${}
+
+====================================================================================================
+
+reduce method
+
+	-> To calculate the sum of all values in the array.
+	-> reduce all the element in the array and produce single value, which may me string, number, object...
+	-> reduce method has two arguments one is call back and initial value to accumulator.
+	-> This method takes callback function with two parameters accumulator and current value.
+
+	const numbers = [1, 2, -1, 5];
+
+	let sum = 0;
+	
+	for( let i of numbers ) {
+		sum += i;
+	} 
+
+	const sum = numbers.reduce((accumulator, currentValue) => {
+		return accumulator + currentValue;
+	}, 0);
+
+	console.log(sum);
+
+=====================================================================================================
+
+Object destructuring
+
+	const address = {
+		street : '',
+		city : '',
+		district : ''
+	}
+	const street = address.street;
+	const city = address.city;
+	const district = address.district;
+
+		instead of repeating the address. we can use object destructuring
+
+			const { street, city, district } = address;
+
+		if we want only street
+	
+			const { street } = address;
+
+		if we want different name use alias name
+
+			const { street: st } = address;
+
+===============================================================================================================
+
+class
+
+	-> In js class is an object.
+	
+	const person = {
+		name : 'sam',
+		walk() {
+			console.log(this);
+		}
+	}
+
+	if we want another person like this we are duplicating
+
+	const person = {
+		name : 'sam',
+		walk() {
+			console.log(this);
+		}
+	}
+
+	For larger application this object method can have multiple lines of code. If there is any bug we have to find 
+		and replace everywhere.
+	For solving the above problem we can create a blueprint and use everywhere
+
+	class Person {
+		constructor(name) {
+			this.name = name;
+		}
+		walk() {
+			console.log(this);
+		}
+	}
+
+	const person = new Person('somename');
+	
+		we can access person.walk;
+		
+		-> if there is any bug in the above method we can easily modify that.
+
+	
+
+============================================================================================================
+
+spread operator
+
+	
+
+============================================================================================================
+
+Inheritance
+
+	class Person {
+		constructor(name) {
+			this.name = name;
+		}
+		walk() {
+			console.log('walk');
+		}
+	}
+
+	class Teacher extends Person {
+		constructor(name, degree) {
+			super(name);
+			this.degree = degree;
+		}
+		teach() {
+			console.log('teach');
+		}
+		
+	}
+
+	const teacher = new Teacher('somename', 'Msc');
+
+		we can call every method and property of two classes using "teacher.name" like this.
+
+=================================================================================================================
+
+Modules 
+
+	-> splitting a bunch of code into multiple modules and import whatever we want.	
+
+	person.js
+
+		export class Person {
+			constructor(name) {
+				this.name = name;
+			}
+			walk() {
+				console.log('walk');
+			}
+		}
+
+	teacher.js
+
+		import { Person } form './person.js';
+		export class Teacher extends Person {
+			constructor(name, degree) {
+				super(name);
+				this.degree = degree;
+			}
+			teach() {
+				console.log('teach');
+			}
+		
+		}
+
+	solution.js
+		
+		import { Teacher } form './teacher.js';
+		const teacher = new Teacher('somename', 'Msc');
+
+====================================================================================================================
+
+	
+Export
+
+	1. default export -> import ... from '';
+	2. named export -> import { ... } from './' ;
+
+
+
+	
+

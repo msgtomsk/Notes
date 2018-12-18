@@ -1,0 +1,292 @@
+
+OOPS
+
+1. Not a programming language or tool
+
+2. This is one style of programming or programming paradigm
+
+===================================================================
+
+languages support OOPs
+
+1. C#
+2. java
+3. python
+4. Ruby
+5. Javascript
+
+=====================================================================
+
+Main concepts
+
+1. Encapsulation
+2. Abstraction
+3. Inheritance 
+4. polymorphism
+
+===========================================================================
+
+Notes 
+
+1. variable -> property => to store values
+
+2.functions -> methods => for logics
+
+3. procedural programming -> variables to store values and multiple functions to perform action with those variables
+
+5. ES5 and before -> var keyword
+
+6. ES6 -> let and const keyword
+
+=============================================================================
+
+Encapsulation 
+
+	-> use functions inside the object
+	-> fewer the parameter to the function
+	-> grouped into single unit
+	-> eg
+		let obj = {
+			prop1 : 12, -----------> property
+			getprop : function() {	--------------> method
+				return this.prop1;
+			}
+		}
+
+================================================================================
+
+Inheritance
+
+	-> allows us to eliminate reduntant code
+
+================================================================================
+
+Benefits
+
+1. Encapsulation -> group related variables and functions together, so complexity is reduced.
+		 -> reuse in different parts of program
+
+2. Abstraction  -> hide the internal details and complex.
+		-> isolates the impact of changes in the code.
+
+3. Polymorphism -> refactor ugly switch statements
+
+=======================================================================================
+
+Object literal
+
+1. Object literal syntax -> let variable = {};
+				
+			-> not a good way for duplicate if it contains atleast one method
+
+create object using factories and constructor
+
+1. Factory function
+
+	function createFun(radius) {
+		return {
+			radius,  ----------> if key value pair has same name, we can define like this
+			draw: function() {
+				console.log("draw);
+			}
+		}
+	}
+
+	const circle = createFun(1);
+	circle.draw();
+
+2. Constructor function 
+
+	-> Naming of the function should start with capital letter.
+	
+	function Circle(radius) {
+		this.radius = radius;   -------------> this keyword is the reference to the current object executing
+		this.draw = function() {
+			console.log("draw);
+		}
+	}
+
+	const another = new Circle(1) -------------> new keyword creates an empty object
+
+		(or)
+
+	Circle.call({}, 1); --------------> same as called above
+		-> Circle.call({}, 1, 2, 3); ------> explicitly pass arguments
+
+		(or)
+
+	Circle.apply({}, [1, 2, 3]);  ----------> exactly same as call but can pass arguments as array
+
+
+  -> By default this refers to the global object i.e. window object
+
+if we create obj with new keyword
+
+  -> assign object to this keyword
+
+  -> returns the object
+
+
+Constructor property
+
+	-> Every object has the property constructor that refers to the function used to create the object
+		-> const another = new Circle(1) => here it will be Circle
+
+	-> if we call like this [const circle = createFun(1)] it uses the default constructor Object();
+	
+	other constructor
+
+		-> new String;  // '', "", ``
+
+		-> new Boolean(); // true, false
+
+		-> new Number(); // 1, 2, 3, ....
+
+
+	-> internally javascript engine uses "Function" to create an object
+
+		const Circle1 = new Function('radius', `
+			this.radius = radius;  
+			this.draw = function() {
+				console.log("draw);
+			}
+		`);
+
+		const circle = new Circle1(1);
+		}
+
+
+=========================================================================================================================
+
+Value Vs Reference types
+
+	Value Types -> also called primitives
+		
+		-> Number
+		-> String 
+		-> Boolean
+		-> Symbol  => new in Es6
+		-> undefined
+		-> null
+
+	Reference Types -> 
+		
+		-> Object 
+		-> Function 
+		-> Array
+
+Primitives Vs Objects
+
+	primitives -> copied by value
+
+		let x = 10;
+		let y = x;
+		x = 20;
+
+			x -> 20
+			y -> 10
+
+		Because both the variables are completely independent it just copies the values
+
+	objects -> copied by reference
+		
+		let x = { value: 10 };
+		let y = x;
+		x.value = 20;
+
+			x -> { value: 20 }
+			y -> { value: 20 }
+
+
+		Because object is not stored in x, it is stored in somewhere, only the reference is stored in x
+
+====================================================================================================================
+
+Adding and removing properties
+
+	function Circle(radius) {
+		this.radius = radius; 
+		this.draw = function() {
+			console.log("draw);
+		}
+	}
+
+	const circle= new Circle(1) 
+	circle.location = { x: 1 };
+
+	delete circle.location;
+
+
+===========================================================================================================
+
+Enumerate properties
+
+	-> can use for in loop
+
+		function Circle(radius) {
+			this.radius = radius; 
+			this.draw = function() {
+				console.log("draw);
+			}	
+		}
+
+		const circle= new Circle(1) 
+
+		for ( let key in circle) {
+			if(typeof circle[key] !== 'function')
+				console.log(key, circle[key]);
+		}
+
+			(or)
+
+		const keys = Object.keys(circle); --------> return keys as array
+
+
+		checking key is present or not (check for existance)
+
+			if('radius' in circle)
+				console.log("radius is present");   ------> will display
+
+
+==============================================================================================================
+
+Abstraction
+
+	-> hide the details, show the essentials
+
+	-> hide certain members from outside  (use as local)
+
+		function Circle(radius) {
+			this.radius = radius; 
+			let defaultLocation = { x: 10 };
+			let computeOptimimLocation = function() {  ----------> this is local method, cannot call from outside
+
+			}
+			this.getdefaultLocation = function() {
+				return defaultLocation ;
+			}
+
+			Object.defineProperty(this, 'defaultLocation', {
+				get: function() {
+					return defaultLocation ;
+				},
+				set: function(value) {  ------------> can validate before setting the value
+					if(!value.x)
+						throw new Error('invalid Location');
+					defaultLocation = value;
+				}
+			});
+			this.draw = function() {
+				computeOptimimLocation(); --------> no need to call using this (because of closure concept)
+				console.log("draw);
+			}	
+		}
+
+		const circle= new Circle(1) 
+
+		// circle.getdefaultLocation();
+		// circle.getdefaultLocation;
+		// circle.setdefaultLocation(1);
+
+
+		

@@ -2,8 +2,30 @@
 
 2. ngrok - hosting
 
+3. hackernoon.com
+
+4. javascript.info
+
+5. https://www.academind.com
+
+6. https://www.freetutorials.eu
+
+
+
 ******************************************************
 
 1. Table - whitespace : no-wrap
 
 2. single word exceeding length -> overflow-wrap : break-word
+
+
+
+**********************************************************
+
+Commands
+
+1. List of Installed programs in windows
+
+	-> wmic
+	-> /output:C:\InstallList.txt product get name,version 
+	

@@ -1,0 +1,68 @@
+javascript
+
+	-> programming language
+	-> originally designed to run in browser using javascript engine
+	-> By using node we can run the code outside
+	-> Browser and node provide run time environment for the javascript
+
+	ECMA script -> It is just a specification developed in 1997.
+		    -> Es6 - 2015
+
+	-> For best practise script should be the end of the body instead of head tag
+		-> else while running the code engine will be busy with running(parsing) the js instead of rendering, it will produce bad user experience.
+		-> second reason is the js will do with html element, 
+
+	-> By default the value of the variable is undefined.
+
+   Primitive Types
+
+	variable declaration
+
+		-> cannot start with number. eg. 1name
+		-> cannot contain space or - in between
+		-> case sensitive
+		-> Use camel notation
+
+		-> All types are number (int or float)
+		-> undefined is value as well as type	
+
+   Reference Types
+
+	Object
+		-> Dot notation => simplest way
+		-> Bracket notation => used for dynamic keys
+			eg. let key = 'something'
+			    objectName[key]
+
+	Array
+		-> Array is a datastructure used to represent list of items
+		-> array is dynamic in js (we can store any datatype e.g. let value = ['sam', 1])
+
+	Function
+		
+		// performing a task
+		function great(name) {  -------------> here is parameter
+			console.log('hello ' + name);
+		}
+		great('john'); -----> here is argument
+
+		// calculating a value
+		function square(num) {
+			return num * num;
+		}
+		console.log(square(2));
+Node 
+
+	-> node is a program that includes google v8 js engine.
+	
+	To run js in node
+		-> Install node from nodejs.org
+		-> Move to the folder
+		-> Run node fileName.js
+
+
+
+Two types of programming language
+
+	-> static language	eg. String name = "abc"; -----> Type cannot be changed after
+	-> Dynamic language	eg. let name = 'abc'; ------> Type can be changed after	

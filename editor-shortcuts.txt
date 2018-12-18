@@ -1,0 +1,15 @@
+Visual stdio code
+
+1. ! tab -> to generate basic html code
+
+2. ctrl + D -> to select same string as selected
+
+3. alt + down arrow -> move a piece of code down
+
+
+===============================================================================
+
+Chrome console
+
+	-> clear => ctrl + l
+
