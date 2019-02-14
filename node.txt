@@ -1,0 +1,48 @@
+Node  ----> 2009
+
+	-> Run time environment to run the js outside the browser
+
+	-> Use node to build backend services also called API.
+
+	-> provides highly scalable services.
+
+	-> Largest ecosystem of opensource libraries.
+
+	-> chrome v8 js engine + c++ = node
+
+	-> highly scalable because of non Blocking async nature.
+
+How node works
+
+	-> Async by default.
+
+	-> single thread can used for request by multiple client.(Event Queue take care of this)
+
+	-> Do not use for CPU intensive applications,(video encoding & img manipulation services)
+		this will make the other user to wait.
+
+===============================================================================================================
+
+Install node
+
+	install from node.org
+
+
+Run a code
+
+	node fileName.js
+
+		Here window obj does not present because it is run time environment.
+	
+===================================================================================================================
+
+Node Modules
+
+	Global Object
+
+		-> console.log() automatically prefixes with window in the browser
+		-> setTimeout() ...
+
+ 	Instead of window obj, global obj is present in node.
+
+	varibles declared is not added to the global obj.
