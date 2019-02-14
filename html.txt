@@ -1,0 +1,35 @@
+Before HTML
+
+	->  one giant, cumbersome language
+
+
+Semantic HTML Tags
+
+<abbr>	Abbreviation
+<acronym>	Acronym
+<blockquote>	Long quotation
+<dfn>	Definition
+<address>	Address for author(s) of the document
+<cite>	Citation
+<code>	Code reference
+<tt>	Teletype text
+<div>	Logical division
+<span>	Generic inline style container
+<del>	Deleted text
+<ins>	Inserted text
+<em>	Emphasis
+<strong>	Strong emphasis
+<h1>	First-level headline
+<h2>	Second-level headline
+<h3>	Third-level headline
+<h4>	Fourth-level headline
+<h5>	Fifth-level headline
+<h6>	Sixth-level headline
+<hr>	Thematic break
+<kbd>	Text to be entered by the user
+<pre>	Pre-formatted text
+<q>	Short inline quotation
+<samp>	Sample output
+<sub>	Subscript
+<sup>	Superscript
+<var>	Variable or user defined text
