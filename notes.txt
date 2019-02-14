@@ -1,3 +1,5 @@
+Websites
+
 1. Tutorial horizon
 
 2. ngrok - hosting
@@ -10,14 +12,83 @@
 
 6. https://www.freetutorials.eu
 
+7. caniuse.com   -------> find css property browser support
 
+8. css clip path ---------> css image clip
+
+9. netlify
+
+10. http://lorempixel.com/400/200/  ---------> for random images
+
+11. plnkr ----> online editor (work with modules)
+
+12. snazzymaps
+
+13. heremaps
+
+14. netninja -----> youtube
+
+15. js30
+
+16. freecodecamp
+
+17. be internet awsome
+
+18. species in pieces
+
+19. lottie ----> graphics
+
+20. https://www.shutterstock.com/
+
+=====================================================================================================
+
+1. npm scripts
+
+2. web assembly
+
+3. flutter (Fuchsia os)-----> going to replace andriod
+
+4. Dart ----> developed by google
+
+5. adobe illustrator ----> for design
+
+6. stephen grider ---> ()
+
+7. Todd motto  ----> react (google)
+
+8. passport.js -----> (eg. signin with google like that)
+
+9. ejs, hbs(handlebars.js)
+
+10. paradigms in programming
+
+11. IFFI ----> js function
+
+12. traceur  ------> google js comiler
+
+13. mobx  ---------> like redux
+
+14. alaSQL
 
 ******************************************************
+
+1. UWP 
+
+2.
+
+***************************************************************
 
 1. Table - whitespace : no-wrap
 
 2. single word exceeding length -> overflow-wrap : break-word
 
+
+
+******************************************************************
+
+Web Extension
+
+1. css peeper
 
 
 **********************************************************
