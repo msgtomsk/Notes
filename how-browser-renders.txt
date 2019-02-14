@@ -1,0 +1,14 @@
+1. User Interface
+2. Browser engine
+3. Rendering engine
+4. Networking
+5. Js Interpreter
+6. UI Backend
+7. Data
+
+steps
+	1. Resource gathering
+	2. Parse HTML and create DOM Tree
+	3. Create Rendered Tree
+	4. Layout  -----> positioning in the page
+	5. Painting   ---------> stack painting(background ,.....)
