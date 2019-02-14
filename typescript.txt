@@ -1,0 +1,252 @@
+
+Type script
+
+	-> Not an entirely new language, it is a superset of javascript.(Any valid js code is a valid typescript code)
+	-> Type script has additional features that do not exists in the current version of js.
+
+	-> strong or static typing
+
+	-> classes
+	-> constructors
+	-> interfaces
+	-> access modifiers
+	
+
+	Benefits
+
+		-> Catch errors in compile time instead of run time.
+
+	TypeScript ----> Transpile ----> Javascript
+
+	Install Typescript
+
+		-> npm install -g typescript
+		-> tsc --version (typescript compiler version) 	
+
+		Compile typeScript code
+			-> tsc filename.ts 
+
+			->  ng serve automatically calls the transpiler and converts the typescript to javascript
+
+		Execute js using node
+			-> node filename.js
+
+   Variable declaration in typescript
+
+	-> Two ways
+		1. var keyword
+		2. let keyword
+		
+		while compiling, transpiler compiles and generate equivalent js file(let keyword will be var in generated js
+			because, it compiles to Es5 js)
+
+		let a: number  -----> setting a as number.
+		a = 'Hai' -----> warning
+
+
+	-> let a : number;
+	-> let b : string;
+	-> let c : boolean;
+	-> let d : any;
+	-> let e : number[]; --------> array
+		let e : number[] = [1, 2, 3];
+		let f : any[] = [1, true, 'hi'];
+
+	const Red = 1;
+	const Blue = 2;
+	
+	-> enum color = {Red, Blue}  => enum color = {Red = 0, Blue = 1} -> automatically takes the value
+						*For the best practise declare the value.
+		color.Red   ----------> accessing
+
+	===============================
+		
+	Concept of type assertion in typescript
+		-> Explicitly tells the browser for the type of variable.
+
+			eg: let a = "hi"  --------> type string
+			    let endWithI = a.endsWith('i') -------> automatically takes as string
+
+			eg: let a;  --------> type any
+			    a = "hi";
+			    let endWithI = a.endsWith('i') --------> here we have to tell the type of variable
+
+				we can define the type in two ways
+					1. let endWithI = (<string>a).endsWith('i') -----> use angular braces
+					2. let endWithI = (a as string).endsWith('i') -----> use "as"
+
+		-> Assertion does not change the type of variable at runtime infact it does not going to restructure the 
+			that object in memory, it is purely a way to tell the typescript compiler about the type of the
+			variable, so we can access the intellisense.
+
+
+   Custom types in typescript
+	
+	For more paramerts, we can pass as encapsulated object, In this, the type may have the chance to change, we can
+		solve by using two methods
+
+	1.Inline annotation
+
+			let drawPoint = (point: {x: number,y: number}=> {   ---------> if we want point obj we have to again write the type
+				//...
+			}
+
+			drawPoint({
+				x: 1,
+				y: 2
+			});
+
+			
+	
+	2.Interface (another way)
+		-> Does not have implementation, having only signature.
+	
+		interface Point {  ---------> use Pascal naming convention
+			x: number,
+			y: number
+		}
+
+		let drawPoint = (point: Point) => {  ------> can use the type anywhere without rewriting
+			//...
+		}
+		drawPoint({
+			x: 1,
+			y: 2
+		});
+
+		There is also a problem in using interface, In OOPS there is a concept called cohension, which means the 
+			things that are related should be a part of one unit they should go together. In the above code 
+			we are voilating the cohension property. To aviod voilation of cohension property we move to class.
+
+		
+	======================
+
+	Class
+		Class groups properties and functions the are highly related
+
+		class Point {  ---------> use Pascal naming convention
+			x: number,
+			y: number
+
+			draw = () => {
+				//...
+			}
+
+			getDistance(another: point) {
+				//...
+			}
+		}
+
+		let point = new Point();
+		point.x = 1;
+		point.y = 2;   -----------> if we have more properties like this, it is not a cleaner way, so constructor comes.
+		point.draw();  
+
+		In the above code, we are grouped everything related to point.
+
+	===========================
+	
+	constructor
+		-> constructor is the reserved keyword for typescript.
+
+			class Point {  ---------> use Pascal naming convention
+				x: number,
+				y: number
+
+				constructor(x: number, y: number) {
+			
+				}
+
+				draw = () => {
+					//...
+				}
+			}
+
+			let point = new Point(1, 2);
+			point.draw();
+
+		-> without passing arguments while creating instance it will show error. we cannot use multiple 
+			constructor in typescript.
+		-> we can make the arguments optional by using '?' in the parameter of constructor.
+
+			class Point {  
+				x: number,
+				y: number
+
+				constructor(x?: number, y?: number) { -----> arguments are optional
+					this.x = x;
+					this.y = y;
+				}
+
+				draw = () => {
+					//...
+				}
+			}
+
+			let point = new Point();  --------> No error
+			point.draw();
+
+		-> In the above code after setting the value to the members using constructor, we can again change the 
+			value of the member. we can prevent that by using the access modifier
+
+	===============================
+
+	Access modifiers
+		-> public
+		-> private
+		-> protected
+
+		-> If we declare the members as private, we cannot access outside the class.
+
+		-> The above code is redundant. we can also write the above code as
+		
+			class Point {  
+				constructor(private x?: number, private y?: number) { -----> arguments are optional,
+											here automatically declared & assigned
+				}	-----> no need to set as "this.x = x".
+
+				draw = () => {
+					//...
+				}
+			}
+
+			let point = new Point();  --------> No error
+			point.draw();
+
+	============================
+
+	getter/setter
+
+		class Point {  
+				constructor(private _x?: number, private _y?: number) { -----> arguments are optional,
+											here automatically declared & assigned
+				}	-----> no need to set as "this.x = x".
+
+				draw = () => {
+					//...
+				}
+				set x(val) {  --------------> use camel case notation.
+					if(val < 0) 	
+						throw new Error("No negative value");
+					this._x = val; 
+				}
+
+				get x() {    -----------------> This is a property not a method
+					return this._x;
+				}
+			}
+
+			let point = new Point();  
+			let value = point.x
+			point.x = 10; 
+			point.draw();
+
+=======================================================================================================================
+
+Module
+
+	-> In typescript each file is a module
+
+	-> export should be used to make the file as module
+		e.g. export class Point {  }
+
