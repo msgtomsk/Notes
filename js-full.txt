@@ -1,0 +1,12 @@
+https://github.com/jonasschmedtmann/complete-javascript-course
+
+http://codingheroes.io/resources/
+
+1. Type coercion
+
+********************************************************************
+
+	-> prompt("what is your last name"); ===> like alert and also get the value
+		var value = prompt("what is your last name");
+
+	-> 
