@@ -1,0 +1,206 @@
+What is angular 
+	Angular is a framework for building client applications in HTML,CSS, Javascript/Typescript.
+	Angular has been written with Typescript.
+
+Why angular and its benefits
+	For larger application vannila js or jquery is hard to maintain.
+	Angular makes the application clean and loosely coupled structure, so easy to understand and maintain.
+	Includes lot of reusable code.
+	Which is more testable. (automated test)
+
+
+Requirements
+	-> node js => version 8 or 10 (min-version required => node 6.9)
+	-> npm => for third party libraries.
+		=> here we use Angular CLI (command line interface)
+			angular cli uses a tool web pack, which is build automation tool, it takes all the script and css,
+				bundle them and minify that bundle. This is for optimization
+		(Hot Module Replacement) -> no need to refresh for every change. webpack takes care of this.
+
+Angular js -> 2010
+Angular 2 -> 2016 using typescript (totally different from Angular js, "like new framework" )
+Angular 4 -> same as Angular 2, have some minor updates.
+
+open the project using terminal in vs code
+	-> press shift + ctrl + p => opens command pallete.
+	-> Type install 'code' command in PATH
+	-> open terminal, go to the project created folder and type "code ."
+
+=====================================================================================================================================================
+
+( CLI command )
+To install the CLI using npm
+	-> npm install -g @angular/cli
+
+Create a workspace and initial application
+	-> ng new my-app
+
+Serve the application
+	-> cd my-app
+	-> ng serve --open
+		-> The --open (or just -o) option automatically opens your browser to http://localhost:4200/.
+
+Folder structure 	
+	1. e2e => end to end (here we write end to end for our application) which is basically automated test that simulate real user
+	2. node_modules => stores all the third party libraries that our application depend upon
+	3. src
+		polyfills -> import some script required for running angular because, angular uses js that are not avail in
+				in the current version js.
+			     It fills the gap between features of js and angular needs.
+		styles.css -> global style for application
+	4. karma.conf.js -> test runner for js code.
+	5. protractor -> running end to end test for angular.
+	6. tsconfig.json -> has settings for typescript compiler, based on this setting typescript compiler compiles to js.
+	7. tslint.json -> includes number of settings for TS linked.
+			 TS lint is a static analysis tool for typescript code.
+Notes 
+
+	-> Angular CLI tool to accelerate development.
+	-> npm client => which is installed with Node.js by default.
+
+
+==============================================================================================================================
+
+Angular fundamentals
+
+	-> components
+		It encapsulates the data, HTML Templates and logic.
+
+	-> module
+		It is a container contains the group of related components
+
+
+	Creating component
+
+
+	  Step 1
+
+		-> In the App folder create new file and name is as "<name>.component.ts"
+
+		-> Angular has a decorator function to make the component.
+
+			import { Component } from '@angular/core';
+
+			@Component({   ---------> decorator function (have to pass an obj)
+							-------> one or more property, tells how the angular works
+				selector: 'courses',	---> like css selector  (here this is custom element)
+				template: '<h2>Courses</h2>'  --------> HTML markup want to be rendered by this component
+				
+			})
+	  Step 2
+
+		-> register the component in app.module.ts 
+			include the component in declarations array
+
+
+	Creating component using Angular CLI
+
+		-> ng g c course => ng generate component componentName
+
+======================================================================================================================
+
+Interpolation
+
+	import { Component } from '@angular/core';
+
+	@Component({   ---------> decorator function (have to pass an obj)
+							
+		selector: 'courses',	
+		template: '<h2>{{ title }}</h2>'  ----------> dynamic data, which can be any methods
+				
+	})
+
+	export class CourseComponent {
+		title: "First App"
+	}
+
+
+
+====================================================================================================================
+
+Directives
+
+	import { Component } from '@angular/core';
+
+	@Component({   ---------> decorator function (have to pass an obj)
+							
+		selector: 'courses',	
+		template: `
+			<h2>{{ title }}</h2>
+			<ul>
+				<li *ngFor = "let course of courses">   ------> directive
+					{{ course }}
+				</li>
+			</ul>
+		`
+				
+	})
+
+	export class CourseComponent {
+		title: "First App";
+		courses: ['course1', 'course2', 'course3'];
+	}
+
+	-> if there is change in dom start the directive with * symbol.
+
+====================================================================================================================
+
+Services
+
+	-> Component should not contain logic other than the presentation logic.
+
+	-> In the app folder create a file with name <name>.service.ts
+
+	-> Service, no need decorators here.
+	
+	CoursesService component
+		export class CoursesService {
+			courses = ['course1', 'course2'];
+			getCourses() {
+				return this.courses;
+			}
+		}
+
+
+	CourseComponent
+	@Component({   ---------> decorator function (have to pass an obj)
+							
+		selector: 'courses',	
+		template: `
+			<h2>{{ title }}</h2>
+			<ul>
+				<li *ngFor = "let course of courses">   ------> directive
+					{{ course }}
+				</li>
+			</ul>
+		`
+				
+	})
+
+	export class CourseComponent {
+		title: "First App";
+		courses;
+
+		constructor(service: CoursesService) {
+			// let serv = new CoursesService(); ---> it is tightly bounded we should not create instance here,
+			this.courses = service.getCourses();			instead we use it as dependency.
+		}
+	}
+
+
+   -> generate service using angular CLI
+
+	ng g s <email> -> generate service <email>
+		
+		This will generate two files. ts file contains @Injectable decorator, this is needed if the there is
+			dependency included in the constructor.
+		
+========================================================================================================================
+
+Dependency injection
+
+	-> instruct angular to inject the dependencies of this components into its constructor.
+
+	-> For this include the dependency in the provider array in app.module.ts
+		-> if we create like this, it will create only one instance for all component.
+
