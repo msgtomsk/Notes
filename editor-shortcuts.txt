@@ -7,6 +7,12 @@ Visual stdio code
 3. alt + down arrow -> move a piece of code down
 
 
+
+Extension
+
+	1. auto import -> import automatically
+
+
 ===============================================================================
 
 Chrome console
