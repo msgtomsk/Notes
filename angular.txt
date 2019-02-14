@@ -1,0 +1,111 @@
+Important
+
+	-> 05 Components  Databinding Deep Dive
+
+===========================================================================================================
+
+	-> Angular is a js framework used to develop single page Applications.
+
+	-> Angular 1 => 2010  -------------> angular js
+
+	-> Angular 2 => 2016  ------------> Angular
+
+	-> Angular 6 => 
+
+	-> Angular 7 => 
+
+========================================================================================================
+
+Directive
+	Directive are the instructions in the DOM.
+
+	-> ngModel  ==> forms
+	-> ngIf ==> structural directive, * is needed, because we changing something in the DOM
+	-> ngStyle ==> dynamically update the style. eg. used as property binding([ngServe] = "{backgroundColor:red}")
+	-> ngClass ==> dynamically add class name
+
+===================================================
+
+	string interpolation => ( {{ }} )
+	property binding => ( [property] = "data" )
+	event binding => ( (event) = "expression" )
+
+=================================================================================================================
+
+Debugging
+
+	-> Augury extension
+
+=============================================================================================================
+
+Binding input
+
+	-> [ngModel] = "reference"
+
+	-> EventEmitter
+
+	-> @Input()  ------> we can pass alias name inside the paranthesis
+	
+	-> @Output()
+
+	-> @ViewChild() name: ElementRef
+
+	-> Passing local reference
+
+======================================================================================================
+
+Lifecycle
+
+	Video -> 72
+
+	calling sequence 
+
+		-> constructor()
+		-> ngOnChanges(change: SimpleChange)
+		-> ngOnInit()
+
+
+	After ngViewInit() hook we can access the template element, while using the reference(@ViewChild())
+
+======================================================================================================
+
+Directive
+
+  ng g d better-highlight  ----------> create a directive
+
+	-> Attribute directive => just like attribute
+		-> never delete the DOM content (like Styling)
+	-> Structural directive	=> like attribute directive, but change something in the DOM
+		-> Remove something from the DOM (like ngIf)
+
+	Attribute directive
+
+		-> ngClass
+		-> ngStyle  => apply direct styles
+
+	Structural directive ( Should contain * )
+
+		-> ngFor
+		-> ngIf
+
+
+	@Directive({
+		selector: '[ appBasicHightlight ]'
+	})
+
+	connstructor(private elementRef: ElementRef) {}
+	ngOnInit() {
+		this.elementRef.nativeElement.style.backgroundColor = 'red';
+	}  -----------> This is not a better approach
+
+	so generate directive
+
+		-> here we use renderer to apply style (this is better approach)
+
+	=> @HostListener decorator is used to style the element while hovering
+	=> @HostBinding -------> easier than the hostlistener
+
+
+
+vid = 92
+	
