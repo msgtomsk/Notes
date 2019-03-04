@@ -1,0 +1,20 @@
+-> php needs web server which is inbuild in php
+-> To run php, run the command "php -S localhost:4400"
+-> php is very tightly coupled language with html
+
+
+code 
+
+	-> <?php ?>
+	-> echo command to display.
+	-> semicolon is needed at the end of every statement for termination.
+
+variables:
+	-> $variableName = "";
+
+Datatypes
+	-> string
+	-> number (whole number, Decimal number)
+	-> boolean
+
+URL parameters
