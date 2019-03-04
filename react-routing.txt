@@ -1,0 +1,66 @@
+github link : https://github.com/hamza-mirza/react-router
+
+Routing 
+
+	-> install react-router-dom by using npm-install react-router-dom
+
+	To use 
+
+		-> import { BrowserRouter, Route, Switch } from "react-router-dom";
+			
+			-> BrowserRouter is a wrapper component
+			-> Route is a self closing tag
+
+				<BrowserRouter>
+					<Switch>
+						<Route />
+					<Switch/>
+				<BrowserRouter/>
+
+		-> Route takes parameter path i.e, URL, and the next parameter is component.
+			<Route path = "/new" component = {} />
+				path => localhost:3000/new
+				component => which component to render in the given URL.	
+
+		-> <Route path = "/" /> refers to the home page of the website.
+
+		-> <Route path = "/" exact/> => exact attribute is used to exact url matching.
+
+		-> <Route component = {} /> => to render the component if the path is mismathed or not exists.
+
+
+
+
+
+
+	The link that displays in all the pages
+
+		import { NavLink } from "react-router-dom";
+
+		-> NavLink takes one parameter, "to".
+
+		-> <NavLink to = "/">Home</NavLink>  ----> to redirect to home page
+
+
+
+============================================================================================================
+
+
+Add transition effect
+
+	-> npm install react-transition-group --save
+
+	To use 
+
+		-> import { CSSTransition, TransitionGroup } from "react-transition-group";
+
+		-> <TransitionGroup>
+			<CSSTransition timeout = {300} classNames = "fade">
+				<Switch></Switch>
+		   	<CSSTransition />
+		   </TransitionGroup>
+
+
+================================================================================================================
+
+	-> Diffing
