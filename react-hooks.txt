@@ -1,0 +1,53 @@
+what is hooks
+	-> Newly added feature in React 16.8.
+	-> Allows you to create every component as functional.
+	-> Nothing to do with lifecycle methods.
+	-> React hooks can manage state in functional component also.
+	-> sharing (stateful) logic between components is easy.
+
+How to use:
+
+	-> useState() -----> Is a func imported from react package.
+	
+	-> useState() receives old state as first arg.
+	-> useState() returns an array, which has two elements.
+
+		eg. const [state, setState] = useState( {} )	
+							L-------> old state
+		here,
+			state ----> old state 
+			setState ----> It is a function for updating the old state.
+
+			*Note : These name can be anything.
+
+	-> Here setState method overwrites with the updated property.
+		eg. if we update single property using setState, it deletes every other property.
+			Finally the updated property will be in the old state.
+
+		-> To avoid this we have to merge the state manually. (using spread operator).
+
+	-> we can create multiple state using useState() in hooks
+		-> Instead of copying all the properties, create every propert as individual state. Because it is better
+			to update the property without affecting the other property. (no need to merge everytime).
+
+		eg. const [property, setProperty] = useState(value);
+								|------> here the value can be any dataType.
+
+			-> setProperty(value) ---> can be easily updated like this.
+
+
+Lifecycle methods
+
+	-> we cannot directly add lifecycle methods in the functional component.
+	
+	componentDidMount  ---> useEffect(); (eg. for http requests)
+					|---> is to manage side effect, works different than componentDidMount.
+
+	-> import useEffect from react.
+
+	-> useEffect takes function as an arg. This function is executed everytime after the component rendered.
+		eg. executes after the render cycle finishes.
+
+	-> useEffect run more often than componentDidMount
+ 
+								
