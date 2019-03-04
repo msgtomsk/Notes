@@ -1,0 +1,16 @@
+	-> jest
+
+	-> jest checks all the test file inside the project, For that no need to install any library.
+
+Folder structure 
+	-> In the src folder, create __test__
+	-> inside the folder no need to save filename.test.js instead we can use filename.js
+	-> But prefer to use .test.js extension for easy understanding
+	
+Libraries
+	-> enzyme   => airbnb.io/enzyme
+ 
+	enzyme api
+		-> static renderer
+		-> shallow renderer
+		-> Full DOM renderer
