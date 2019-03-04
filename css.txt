@@ -1,0 +1,24 @@
+Css Units
+	-> 15 css units
+
+Absolute
+
+Relative
+
+
+1. percentage
+	-> Relative to parent
+
+Viewport dimension based unit
+
+	-> vw
+	-> vh
+	-> vmin
+	-> vmax
+
+Font based unit
+
+	-> ex
+	-> ch
+	-> em
+	-> rem
