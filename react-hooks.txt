@@ -49,5 +49,44 @@ Lifecycle methods
 		eg. executes after the render cycle finishes.
 
 	-> useEffect run more often than componentDidMount
+		(if we fetch data, it runs infinite times)
+
+	-> useEffect runs when the functional component rerenders. (i.e every time state changes).
+
+	-> useEffect accepts two arguments
+	
+	-> second argument is the array of dependencies.
+
+	-> useEffect(()=> {}, []) -----> equivalent to componentDidMount.
+		if we pass second argument, if there is any change in that argument it rerenders.
+
+	componentDidUpdate
+
+	-> useEffect can also be used as componentDidUpdate.
+
+	-> To run the useEffect again pass the variable or property as dependency in the second array argument.
+		-> now it runs again if the variable we passed changes.
+
+	componentWillUnmount
+	
+	-> here also useEffect is used.
+
+	-> useEffect( () => {
+			return () => { console.log("cleaning....") }
+		}, [] );
+
+	shouldComponentUpdate
+
+	-> React.memo is the method introduced in react 16.6.
+		wrap the component in React.memo()
+
+
+  We can create our own custom Hooks and can manage the state there.
+
+	*Note: should not use hooks inside if or for statement or function calls.
+		Only use at top level of the function.	
+
+
+
  
 								
