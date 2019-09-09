@@ -1,0 +1,169 @@
+React
+
+	-> It is a library
+	-> used to create superfast js driven application.
+	-> React app runs in browser, not in server.
+
+React ---> all about logic in creating components.
+ReactDOM ----> rendering the components in the real DOM.
+
+Babel ---> covert next generation js to current js.
+
+render() ----> This method allows us to render the js function as a component to the real DOM.
+
+
+Workflow
+
+	why?
+		-> Optimize code.
+		-> use next gen js.
+	how?
+		-> use dependency management tool (npm or yarn)
+		-> use bundler (webpack)
+		-> use compiler (Babel)
+		-> Development server.
+
+Folder structure
+
+
+Css
+
+	-> Third party library ----> Radium
+		-> which is used to apply psuedoclass and mediaqueries while writting the inline styles.
+		-> The best part of using inline style is component specific, can't access outside of it.
+		-> For using mediaquery in our component, it should be wrapped with StyleRoot higher order component.
+
+
+Statefull vs Stateless
+
+	-> statefull (containers)
+		-> use class
+		-> Access to state
+		-> Access to lifecycle hooks
+		-> Access state and props using "this"
+
+	-> stateless (components)
+		-> Access props using props
+
+
+component Lifecycle
+	link: file:///D:/Materials/React%20Tutorial/React-the-complete-guide-incl-redux/07%20Diving%20Deeper%20into%20Components%20%20React%20Internals/085%20lifecycle-creation-learning-card.pdf
+
+	-> can use only in statefull components
+
+	-> Executes while creating components
+		1. constructor() ---> default es6 class feature
+		2. componentWillMount()
+		3. componentDidMount()
+		4. render()
+
+	-> other lifecycle methods
+
+		-> componentWillReceiveProps()
+		-> shouldComponentUpdate()
+		-> componentWillUpdate()
+		-> componentDidUpdate()
+		-> comonentDidCatch()
+		-> componentWillUnmount()
+
+
+  Execution order of lifecycle
+
+	1. constructor
+		-> should call super( props )
+		-> should not reaching out to the web server, this leads to performance issue.
+
+	2. componentWillMount()
+		-> should not use often anymore.
+		-> update state
+		-> last minute optimization
+
+		-> Try to avoid
+
+	3. render()
+		-> prepare and structure your JSX code.
+		-> Render all the child components
+
+	4. componentDidMount()
+		-> shows that the component is successfully rendered.
+		-> Here we can reach out to the web. (eg. Fetch data from web)
+		-> shouldnot update the state.
+		-> it should not execute everytime after render() executes.
+	
+		-> should not reaching out to the web server
+
+  Update lifecycle
+
+	1. componentWillReceiveProps(nextProps)
+		-> we can synchronize our local state of the component.
+		-> don't reach out to the web.
+
+		-> Try to avoid
+
+	2. shouldComponentUpdate(nextProps, nextState)
+		-> Here may cancel the updating process by returning false.
+		-> Decide whether continue or not.
+		-> it doesnot check deeply.
+
+	3. componentWillUpdate(nextProps, nextState)
+		-> Sync State to Props
+	
+		-> Try to avoid
+
+	4. render()
+		-> prepare and structure our code.
+		-> Update child component props.
+	
+	5. componentDidUpdate()
+		-> can cause side effects
+		-> should not update state.  
+
+   Lifecycle hooks
+
+	-> componentWillUpdate(nextProps, nextState), componentWillReceiveProps(nextProps), componentWillMount() are discouraged.
+
+	-> They added new 
+		-> getDerivedStateFromProps(nextProps, prevState) { return prevState   ----> can update the state }  => acts as componentWillMount()
+			-> This is called before render() {}
+			-> use static keyword infront of it, because this is a static method.
+
+		-> getSnapshotBeforeUpdate() {  } => Execute before componentDidUpdate()	
+	
+
+   PureComponent
+
+	-> shouldComponentUpdate(nextProps, nextState) check is already builtin.
+
+prop-types
+
+	-> To check the props type. 
+	-> className.PropTypes = {
+		propertyName : PropTypes.func
+	   }
+
+
+ref
+	-> (eg. focus in input tag)
+	-> references are only available in statefull components.
+
+  refAPI	
+	-> this.inputElement = React.createRef();
+	
+
+contextAPI
+
+	->  Tool to pass the global state around in our app.
+
+	-> export const AuthContext = React.createContext();
+
+	-> pass it as <AuthContext.Provider>{ which component to pass }<AuthContext.Provider>
+
+	-> <AuthContext.Consumer>{ auth => return something }<AuthContext.Consumer>
+
+
+
+	
+
+
+
+	
