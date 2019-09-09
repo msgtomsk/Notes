@@ -1,0 +1,14 @@
+check django is installed correctly
+
+	python -m django --version
+
+
+create an app
+
+	python manage.py startapp <blog>
+		-> This will create a new folder blog. inside that we have multiple files
+	
+	view.py
+		-> import http response
+			from django.http import HttpResponse
+	

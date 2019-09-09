@@ -1,0 +1,59 @@
+!$ -> end of the previous command
+
+Install virtual environment
+	
+	-> pip list
+
+	-> pip install virtualenv
+
+
+create environment
+
+	-> virtualenv <project1>
+
+	install using specific version
+
+		-> virtualenv -p /usr/bin python2.6 <env name>
+
+Activate environment
+
+	-> source project/bin/activate   ----> mac
+
+	-> cd project_first\Scripts> activate
+
+Check which environment currently using 
+
+	-> which python
+	-> which pip
+
+
+Install packages
+
+	-> pip install numpy 
+	-> pip install pytz 
+	-> pip install psutil
+
+	use packages and version numbers in the another project
+		
+		can use global package in the virtual environment
+
+		-> pip freeze --local > requirements.txt ----> This uses only the dependencies installed in the virtual environment
+
+	install pip from the file
+
+		-> pip install -r requirements.txt
+
+
+Install django
+
+	-> pip install django
+
+check django is installed correctly
+
+	-> python -m django --version
+
+
+
+create project 
+
+	-> django-admin startproject <project name>

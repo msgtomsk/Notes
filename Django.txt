@@ -1,0 +1,52 @@
+create virtual Environment
+	
+	-> conda create --name <myDjangoEnv> django
+
+	-> conda create --name <name> python=3.5   ------> install specific version
+
+	-> conda info --envs -----> find which environment it has
+
+  Activate
+
+	-> activate <name>
+
+	-> conda install django	
+
+	> deactivate
+
+
+
+
+
+Create project
+
+	django-admin  ----> installed by django
+
+	-> django-admin startproject <first_project>
+
+
+Folder structure
+	
+	__init__.py  ---> treated as package
+	
+	settings.py  ---> store our project settings
+
+	url.py ---> stores the url patterns for this project
+
+	wsgi.py ---> acts as webserver gateway interface. It helps us to deploy our project to production
+
+	manage.py
+
+
+Run 
+
+	python manage.py runserver
+
+
+
+create application
+
+	python manage.py startapp first_app
+
+
+
