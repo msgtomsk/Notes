@@ -1,0 +1,55 @@
+plugin
+	-> Classic editor
+
+To change code in server.
+
+sFTP ---> extension
+filezilla ----> local 
+
+
+
+website
+
+	-> https://wpdevcourse.com/
+
+
+images
+
+	-> photoshop
+	-> pixlr
+
+
+spreadsheet
+
+	-> invoice
+	-> quotation
+
+payment
+	-> paypal
+	-> stripe
+
+hosting
+	[shared hosting, cloud hosting, managed wordpress hosting]
+	-> siteground  (shared hosting)
+	-> ecowebhosting.co.uk
+	-> flywheel
+	-> cloudways
+
+  -----> reviewsignal.com
+
+
+
+plugin
+
+	-> contact form 7
+	-> google analytics (or) Google analytics by MonsterInsights  [ Analytics account needed]
+	-> email protect
+	-> google maps
+
+
+-> sample.xml
+
+
+
+headless api
+
