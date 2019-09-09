@@ -1,0 +1,34 @@
+Python
+
+	when we hit the url
+
+		urls.py -> views.py -> models.py -> database -> template(HTML, CSS, JS)
+
+
+Introduction to Backend
+
+https://docs.google.com/presentation/d/118w2FK1g7038Su7T_hLYJIfGfQpmPdy3lUGnDx--4lA/edit#slide=id.g1c4e07dad0_0_28	
+
+
+
+commands
+
+	-> dir
+	-> cd
+
+
+
+Installation 
+
+	python anaconda
+
+
+scope
+
+
+	python scope follows LEGB rule
+
+		-> Local
+		-> Enclosing function locals
+		-> Global
+		-> Buitin
