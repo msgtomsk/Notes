@@ -40,6 +40,30 @@ Websites
 
 20. https://www.shutterstock.com/
 
+21. hugo --> frame work for building static website
+
+22. nuxtjs
+
+23. next js
+
+24. preact
+
+25. https://local.getflywheel.com/ --------> like xampp
+
+26. hackertheme (Bootstrap cheat sheet)
+
+27. stackshare.io   --------> to find which company uses which technologies.
+
+28. cron-jobs  
+
+29. https://www.studiopress.com/  ------> wordpress premium themes
+
+30. https://premium.wpmudev.org/
+
+31. https://soliloquywp.com/  --------> wordpress plugin
+
+32. unsplash
+
 =====================================================================================================
 
 1. npm scripts

@@ -4,29 +4,59 @@
 
 2. git status
 
-3. git config user.email -> find the current emailId.
+3. git config user.email 
+	-> find the current emailId.
 
-4. git checkout -> switch between branches.
+4. git checkout 
+	-> switch between branches.
 	example : git checkout <master> -> switch to your master branch
 
-5. git checkout -b <example> -> create new branch.
-	-b flag tells it to create a new branch at the same time. By default, the new branch is based upon whatever branch you were on.
+5. git checkout -b <example> 
+	-> create new branch.
+	-> -b flag tells it to create a new branch at the same time. By default, the new branch is based upon whatever branch you were on.
 
-5. git checkout -b <new-branch> <existing-branch> -> create new branch based on existing branch.
+5. git checkout -b <new-branch> <existing-branch> 
+	-> create new branch based on existing branch.
 
-6. git add git -> stage the newer changes
+6. git add . 
+	-> stage the newer changes
 
-7. git add <example.txt> -> stage particular file.
+7. git add <example.txt> 
+	-> stage particular file.
 
-8. git commit -m "added my github name" -> commit the changes (-m flag is for the message )
+8. git commit -m "added my github name" 
+	-> commit the changes (-m flag is for the message )
 
-9. git push origin <amend-my-name> -> push to particular repository
+9. git push origin <amend-my-name> 
+	-> push to particular repository
 
-10. git pull -> The pull operation does two things: it fetches updates from your GitHub fork (origin), and merges them.
+10. git pull 
+	-> The pull operation does two things: it fetches updates from your GitHub fork (origin), and merges them.
 
 11. git fetch  
-    git merge origin/master -> safer option than pull.
+    	git merge origin/master -> safer option than pull.
 
-12. git branch -> Show local branches.
+12. git branch 
+	-> Show local branches.
 
-13.  git push --set-upstream origin <develop> -> To push particular branch from local to remote.
+13. git push --set-upstream origin <develop> 
+	-> To push particular branch from local to remote.
+
+14. git branch -avv
+	-> To be able to check which upstream you are currently referring to run
+	-> Notice the two -v flag single -v will only give you the commit messages not including the upstream branch.
+
+15. git push <branch with new changes>:<branch you are pushing to>
+	-> If you want to push to the same remote but a different branch.
+	eg. git push origin dev:master
+		-> This pushses local dev branch to origin master branch
+
+16. git pull origin master:dev
+	-> This updates your local dev branch using the remote origin master branch
+
+17. git push origin :<branch>
+	-> delete remote branches.
+
+
+
+link: https://hackernoon.com/git-push-and-pull-tips-and-tricks-7f9163539f02
