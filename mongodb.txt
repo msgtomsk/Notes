@@ -1,0 +1,30 @@
+Database -> shop
+collections -> users and orders (like table)
+documents -> {} 
+		These documents are schema less
+
+Data format
+	BSON format -> binary JSON looks same as javascript obj but its binary encoded
+
+	-> Here we dont have relations across multiple collections.
+
+
+MongoDB Atlas
+	-> It is cloud managed Mongo Database. Which is running in the cloud still connect with our local machine.
+
+commands
+	-> show dsb
+	-> use test-db
+	-> db.users.insertOne({name: 'sar', age: 22})
+	-> show collections
+	-> db.users.find() -> return the document
+	-> db.users.find({"age": {$gt: 25}})
+	-> db.users.update() -> need 2 arguments
+		db.users.update({name: 'sar'}, {$set: {age: 30}})
+	-> db.users.deleteOne({name: ''})
+
+
+MongoDB compass -> GUI 
+
+
+Mongo Stitch
