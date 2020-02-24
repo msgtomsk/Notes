@@ -56,7 +56,24 @@
 
 17. git push origin :<branch>
 	-> delete remote branches.
+	
+18. git reset unwanted_file
+	-> removes the committed files locally
+
+19. git commit --amend -m <commit message>
+	-> change Misspelled Commit Message locally
+	
+20. git commit --amend --no-edit
+	-> Adding Additional Change to Latest Commit locally
+	
+21. git revert HEAD
+	-> Undo Already Pushed Commit 
+
+22. git rebase -i <commit id>
+	Undoing Multiple Commits
+
 
 
 
 link: https://hackernoon.com/git-push-and-pull-tips-and-tricks-7f9163539f02
+Commit change: https://codeburst.io/how-to-undo-commits-in-git-locally-remotely-10078152c239
