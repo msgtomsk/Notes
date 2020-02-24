@@ -70,7 +70,23 @@
 	-> Undo Already Pushed Commit 
 
 22. git rebase -i <commit id>
-	Undoing Multiple Commits
+	-> Undoing Multiple Commits
+	
+23. git show commit_id --name-only
+	-> list the commited files
+
+24. git reset --soft HEAD~1
+	-> uncommit the last commited files
+	
+25. git reset --hard HEAD^
+	-> delete the last commit
+	
+26. git reset --hard HEAD
+    git checkout .
+    	-> discard all the staged files
+	
+26. git clean -df
+	-> discard unstaged changes
 
 
 
